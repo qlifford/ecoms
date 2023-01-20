@@ -24,12 +24,12 @@ function getProducts()
 
           echo "<div class='col-md-4 mb-2'>
           <div class='card'>
-              <h5 class='card-title'>$product_title</h5>
-                  <img class='card-img-top' src='admin_area/product_images/$product_image1' alt='$product_image1'>
-                  <div class='card-body'>  
+          <img class='card-img' width='100%' src='admin_area/product_images/$product_image1' alt='$product_image1'>
+          <div class='card-body'>  
+          <h5 class='card-title'>$product_title</h5>
                   <p class='card-text'>$description</p>
-                  <p >$price</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy now</a>
+                  <p >Kshs $price</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to Cart</a>
                   <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
                  
               </div>
@@ -64,14 +64,14 @@ function getAllProducts()
       
           echo "<div class='col-md-4 mb-2'>
           <div class='card'>
-              <h5 class='card-title'>$product_title</h5>
-                  <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_image1'>
-                  <div class='card-body'>  
+          <img class='card-img' width='100%' src='admin_area/product_images/$product_image1' alt='$product_image1'>
+          <div class='card-body'>  
+          <h6 class='card-title'>$product_title</h6>
                   <p class='card-text'>$description</p>
-                  <p >$price</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy now</a>
+                  <p >Kshs $price</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to Cart</a>
                   <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
-
+                 
               </div>
             </div>
         </div>";
@@ -107,14 +107,14 @@ function getUniqCategories()
        
            echo "<div class='col-md-4 mb-2'>
            <div class='card'>
-               <h5 class='card-title'>$product_title</h5>
-                   <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_image1'>
-                   <div class='card-body'>  
+           <img class='card-img' width='100%' src='admin_area/product_images/$product_image1' alt='$product_image1'>
+           <div class='card-body'>  
+           <h6 class='card-title'>$product_title</h6>
                    <p class='card-text'>$description</p>
-                   <p >$price</p>
-                   <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy now</a>
+                   <p >Kshs $price</p>
+                   <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to Cart</a>
                    <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
- 
+                  
                </div>
              </div>
          </div>";
@@ -149,14 +149,14 @@ function getUniqBrands()
         
             echo "<div class='col-md-4 mb-2'>
             <div class='card'>
-                <h5 class='card-title'>$product_title</h5>
-                    <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_image1'>
-                    <div class='card-body'>  
+            <img class='card-img' width='100%' src='admin_area/product_images/$product_image1' alt='$product_image1'>
+            <div class='card-body'>  
+            <h6 class='card-title'>$product_title</h6>
                     <p class='card-text'>$description</p>
-                    <p >$price</p>
-                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy now</a>
+                    <p >Kshs $price</p>
+                    <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to Cart</a>
                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
-  
+                   
                 </div>
               </div>
           </div>";
@@ -226,14 +226,14 @@ function searchProducts()
 
           echo "<div class='col-md-4 mb-2'>
           <div class='card'>
-              <h5 class='card-title'>$product_title</h5>
-                  <img class='card-img-top' src='./admin_area/product_images/$product_image1' alt='$product_image1'>
-                  <div class='card-body'>  
+          <img class='card-img' width='100%' src='admin_area/product_images/$product_image1' alt='$product_image1'>
+          <div class='card-body'>  
+          <h6 class='card-title'>$product_title</h6>
                   <p class='card-text'>$description</p>
-                  <p >$price</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Buy now</a>
-                  <a href='product_details.php?product_id = $product_id' class='btn btn-secondary'>Details</a>
-
+                  <p >Kshs $price</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to Cart</a>
+                  <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View More</a>
+                 
               </div>
             </div>
         </div>";
@@ -269,13 +269,14 @@ function viewDetails()
 
           echo "<div class='col-md-4 mb-2'>
           <div class='card'>
-              <h5 class='card-title'>$product_title</h5>
-                  <img class='card-img-top' src='admin_area/product_images/$product_image1' alt='$product_image1'>
-                  <div class='card-body'>  
+          <img class='card-img' width='100%' src='admin_area/product_images/$product_image1' alt='$product_image1'>
+          <div class='card-body'>  
+          <h6 class='card-title'>$product_title</h6>
                   <p class='card-text'>$description</p>
-                  <p >$price</p>
-                  <a href='index.php?add_to_cart=$product_id' class='btn btn-warning'>Add to Cart</a>
-                  <a href='index.php' type='button' class='btn btn-info'>Go Home</a>
+                  <p >Kshs $price</p>
+                  <a href='index.php?add_to_cart=$product_id' class='btn btn-primary'>Add to Cart</a>
+                  <a href='index.php' class='btn btn-secondary'>Go Home</a>
+                 
               </div>
             </div>
         </div>
@@ -283,16 +284,19 @@ function viewDetails()
         <div class='col-md-8'>
         <div class='row'>
           <div class='col-md-12 text-center text-primary mb-5'>
-            <h4>Related Products</h4>
+            <h4>More Images</h4>
           </div>
           <hr>
           <div class='col-md-6'>
-            <img src='admin_area/product_images/$product_image2' width='250px' alt='$product_title'>
+            <img src='admin_area/product_images/$product_image2' class='img-responsive h-100' width='100%' alt='$product_title'>
+            <h5 class='card-title'>$product_title</h5>
           </div>
           <div class='col-md-6'>
-            <img src='admin_area/product_images/$product_image3' width='250px' alt='$product_title'>
-          </div>
+            <img src='admin_area/product_images/$product_image3' class='img-responsive h-100' width='100%' alt='$product_title'>
+            <h5 class='card-title'>$product_title</h5>
+          </div>          
         </div>
+        
       </div>
         
         ";
@@ -340,14 +344,9 @@ function getCart()
    else
    {
     $insert = "INSERT INTO carts (product_id, ip_add, qty) VALUES($getProdId,'$getIpAdd',0)";
-    $run = mysqli_query($con, $insert);
+    $res = mysqli_query($con, $insert);
       echo "<script>alert('Item added to Cart')</script>";
       echo "<script>open.window('index.php','_self')</script>";
-    
-
-    
-
-
 
    }
                                   
@@ -355,6 +354,58 @@ function getCart()
  
 
 }
+// get number of cart items
+function getCartCount() 
+{
+  if(isset($_GET['add_to_cart']))
+  {
+    global $con;
+
+   $getIpAdd = getIPAdd(); 
+   $sql = "select * from carts where ip_add='$getIpAdd'";
+   $run = mysqli_query($con, $sql);
+   $count = mysqli_num_rows($run);
+
+ 
+  }
+  else
+  {
+    global $con;
+
+   $getIpAdd = getIPAdd(); 
+   $sql = "select * from carts where ip_add='$getIpAdd'";
+   $run = mysqli_query($con, $sql);
+   $count = mysqli_num_rows($run);      
+
+   }
+   echo $count;
+
+}
+function getCartTotalPrice() 
+{
+  global $con;
+  $getIpAdd = getIPAdd(); 
+
+  $total_price=0;
+  $sql = "select * from carts where ip_add='$getIpAdd'";
+  $run = mysqli_query($con, $sql);
+  while($row = mysqli_fetch_array($run))
+  {
+    $product_id = $row['product_id'];    
+    $sel = "select * from products where product_id='$product_id'";
+    $run_sel = mysqli_query($con, $sel);
+    while($row_price = mysqli_fetch_array($run_sel))
+    {
+
+      $product_price=array($row_price['product_price']);
+      $product_values=array_sum($product_price);
+      $total_price+=$product_values;
+    }
+  }
+  echo $total_price;
+                                
+}
+
 
    ?>
 

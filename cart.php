@@ -11,12 +11,22 @@ include('functions/myFunctions.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecomwebpage</title>
+    <title>Ecomwebpage | Cart</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/CSS/style.css">
 
+    <style>
+   .cart_img
+{
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+
+    </style>
 
 
   </head>
@@ -45,17 +55,9 @@ include('functions/myFunctions.php');
               <li class="nav-item">
                 <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart text-black" aria-hidden="true"></i><sup class="text-danger"><?php getCartCount(); ?></sup></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"> Total Price: Kshs <?php getCartTotalPrice(); ?></a>
-              </li>
+            
             </ul>
-            <form class="d-flex" action="search.php" method="get" enctype ="multipart/form-data">
-              <input class="form-control mr-sm-1" type="search" name="search_data" placeholder="Search" aria-label="Search">
-              <!-- <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button> -->
-
-              <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product" >
-            </form>
-            </form>
+            
             </div>
               </div>
     </nav>
@@ -69,12 +71,13 @@ include('functions/myFunctions.php');
                 <ul class="navbar-nav me-auto">
 
                 <li class="nav-item">
-                      <a class="nav-link" href="#">Logged in as : Guest</a>
+                      <a class="nav-link" href="#">Welcome Guest</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Logout</a>
                     </li>
-                </ul>        
+
+                </ul>
           </nav>
 
       <div class="bg-light">
@@ -82,50 +85,73 @@ include('functions/myFunctions.php');
           <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
 
+      <div class="container">
+        <div class="row">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    
+                    <tr>
+                        <th>#</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th class="w-10">Quantity</th>
+                        <th>Total Price</th>
+                        <th>Remove</th>
+                        <th colspan="2">Operation</th>
+                    </tr>  
+                </thead>   
+                <tbody">
 
-      <div class="row px-3">
-        <div class="col-md-10">
-              <div class="row">
+                <?php
 
-                      <?php
-                       getProducts();                     
-                      getUniqCategories();
-                      getUniqBrands();
-                     
-                          ?>    
-              </div> 
+                  global $con;
+                  $getIpAdd = getIPAdd(); 
+                
+                  $total_price=0;
+                  $product_qty=1;
+                  $sql = "select * from carts where ip_add='$getIpAdd'";
+                  $run = mysqli_query($con, $sql);
+                  while($row = mysqli_fetch_array($run))
+                  {
+                    $product_id = $row['product_id'];    
+                    $sel = "select * from products where product_id='$product_id'";
+                    $run_sel = mysqli_query($con, $sel);
+                    while($row_price = mysqli_fetch_array($run_sel))
+                    {
+                
+                      $product_price=array($row_price['product_price']);
+                      $price_table=$row_price['product_price'];
+                      $product_title=$row_price['product_title'];
+                      $product_image1=$row_price['product_image1'];
+                      // $product_qty=$row_price['qty'];
+                      $product_values=array_sum($product_price);
+                      $total_price+=$product_values;
+                    }
+                  }
+ 
+                 
+              ?>
+               
+                
+                </tbody>                                              
+            </table>
+            <div class="d-flex mb-5">
+            <h4 class="px-3 fw-bold"><strong>Sub Total: </strong><strong class="text-info"><?= $total_price; ?></strong> /-</h4>
+            <a href="index.php"><button class="text-dark btn btn-sm bg-warning mx-2 px-3 py-2 border-0">Continue Shopping</button></a>
+            </div>
+            <div class="">
+              <a href=""><button class="btn btn-sm text-light bg-info px-3 py-2 border-0">Chechout</button></a>
+
+            </div>
         </div>
-    
+      </div>
 
-          <div class="col-md-2 bg-secondary p-0">
-            <ul class="navbar-nav me-auto text-center">
-              <li class="nav-item bg-info">
-                <a href="#" class="nav-link text-light"><h4>Delivery Brands</h4</a></h4>
-                </li>
-                  <?php
-                getBrands();
-                  ?>
-                  </ul>
-
-          <div class="col-md-2 bg-secondary p-0"></div>
-            <ul class="navbar-nav me-auto text-center">
-              <li class="nav-item bg-info">
-                <a href="#" class="nav-link text-light"><h4>Categories</h4</a></h4>
-                </li>
-              <?php
-              getCategories();
-                    ?>
-                    </ul>
-
-
-         </div>
- </div>
- </div>
-            <?php
-            include('includes/footer.php');
+    <?php
+    include('includes/footer.php');
             
-            ?>
+    ?>
+  </div>
             <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-          
+ 
