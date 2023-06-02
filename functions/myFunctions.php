@@ -48,7 +48,7 @@ function getAllProducts()
     if (!isset($_GET['brand']))
     { 
 
-    $select_query = "Select * from `products` order by rand()";
+    $select_query = "Select * from products order by rand()";
     $result_query = mysqli_query($con, $select_query);
       while($row = mysqli_fetch_assoc($result_query))
       {
@@ -130,7 +130,7 @@ function getUniqBrands()
  
      $brand_id = $_GET['brand']; 
  
-      $select_query = "Select * from `products` where brand_id = $brand_id";
+      $select_query = "Select * from products where brand_id = '$brand_id'";
       $result_query = mysqli_query($con, $select_query);
       $num_rows = mysqli_num_rows($result_query);
  
